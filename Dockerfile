@@ -82,6 +82,9 @@ RUN apt install -y apt-utils
 RUN apt install -y python3-argcomplete
 RUN apt install -y ros-dashing-test-msgs ros-dashing-tf2-sensor-msgs sudo
 
+
+#### No recommended to keep source code inside image.
+#### Deprecated
 #<!--Installing the packages-->
 #COPY turtlebot3_ws /root/turtlebot3_ws
 #RUN cd ~/turtlebot3_ws
@@ -89,3 +92,8 @@ RUN apt install -y ros-dashing-test-msgs ros-dashing-tf2-sensor-msgs sudo
 #RUN apt install -y rti-connext-dds-5.3.1 
 #RUN cd /opt/rti.com/rti_connext_dds-5.3.1/resource/scripts && ./rtisetenv_x64Linux3gcc5.4.0.bash; cd -
 #RUN colcon build --symlink-install
+#### Deprecated
+
+LABEL com.nvidia.volumes.needed="nvidia_driver"
+ENV PATH /usr/local/nvidia/bin:${PATH}
+ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64:${LD_LIBRARY_PATH}

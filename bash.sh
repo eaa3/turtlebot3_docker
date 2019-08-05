@@ -39,12 +39,19 @@ source ${ROOT_DIR}/aml_aliases.sh
 
 # if avahi is needed:
 #       --volume="${ROOT_DIR}/avahi-configs:/etc/avahi" \ 
+
+## Turtlebot3 model:
+# export TURTLEBOT3_MODEL=burger
+# export TURTLEBOT3_MODEL=waffle
+# export TURTLEBOT3_MODEL=waffle_pi
 xdocker run -it \
        --user=$(id -u) \
        --env="DISPLAY" \
        --network="host" \
        --privileged \
        --env="QT_X11_NO_MITSHM=1" \
+       --env="TURTLEBOT3_MODEL=burger" \
+       --env="GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/home/$USER/Projects/hp_ws/turtlebot3/turtlebot3_ws/src/turtlebot3/turtlebot3_simulations/turtlebot3_gazebo/models" \
        --workdir="/home/$USER/Projects/hp_ws/turtlebot3/turtlebot3_ws" \
        --volume="/home/$USER:/home/$USER" \
        --volume="/etc/group:/etc/group:ro" \
@@ -80,7 +87,4 @@ xdocker run -it \
 #        --volume="${WORK_DIR}:/home/Projects" \
 #        $DOCKER_IMAGE \
 #        bash
-
-
-
 # --volume="path-in-my-computer:path-in-docker"
