@@ -59,6 +59,7 @@ If everything went well you should see the following gazebo simulation:
 ![alt text](https://raw.githubusercontent.com/eaa3/turtlebot3_docker/master/turtlebot3_ros2_gdemo.png "Gazebo Turtlebot3 Demo")
 
 From here onwards you should be able to run any desired node, etc.
+See more things to try at: http://emanual.robotis.com/docs/en/platform/turtlebot3/ros2/
 
 ### Attach other terminals to running container:
 
