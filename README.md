@@ -56,7 +56,7 @@ Then, refer to "Troubleshooting" options below.
 
 If everything went well you should see the following gazebo simulation:
 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Gazebo Turtlebot3 Demo")
+![alt text](https://raw.githubusercontent.com/eaa3/turtlebot3_docker/master/turtlebot3_ros2_gdemo.png "Gazebo Turtlebot3 Demo")
 
 From here onwards you should be able to run any desired node, etc.
 
