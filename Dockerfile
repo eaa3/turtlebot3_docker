@@ -94,6 +94,8 @@ RUN apt install -y ros-dashing-test-msgs ros-dashing-tf2-sensor-msgs sudo
 #RUN colcon build --symlink-install
 #### Deprecated
 
-LABEL com.nvidia.volumes.needed="nvidia_driver"
-ENV PATH /usr/local/nvidia/bin:${PATH}
-ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64:${LD_LIBRARY_PATH}
+
+# If you run into trouble with libGL error uncomment the following 3 lines and rebuild this docker image: 
+#LABEL com.nvidia.volumes.needed="nvidia_driver"
+#ENV PATH /usr/local/nvidia/bin:${PATH}
+#ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64:${LD_LIBRARY_PATH}
