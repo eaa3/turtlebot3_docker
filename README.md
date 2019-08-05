@@ -43,7 +43,7 @@ Outside docker (in the host machine), follow the steps:
 
 0. `./bash.sh dev:turtle`
 1. Setup environment: `source ${HOME}/Projects/hp_ws/turtlebot3/turtlebot3_ws/install/setup.bash`
-2. Run gazebo simulation example: ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
+2. Run gazebo simulation example: `ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py`
 
 If step 2. reports the following error:
 
