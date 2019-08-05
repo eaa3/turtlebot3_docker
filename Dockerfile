@@ -1,4 +1,5 @@
 FROM osrf/ros:dashing-desktop
+# Suggestion: dashing-desktop-full instead?
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -79,7 +80,7 @@ RUN /bin/bash /usr/share/gazebo/setup.sh
 RUN apt install -y libopensplice69
 RUN apt install -y apt-utils
 RUN apt install -y python3-argcomplete
-RUN apt install -y ros-dashing-test-msgs sudo
+RUN apt install -y ros-dashing-test-msgs ros-dashing-tf2-sensor-msgs sudo
 
 #<!--Installing the packages-->
 #COPY turtlebot3_ws /root/turtlebot3_ws
