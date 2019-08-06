@@ -25,7 +25,7 @@ RUN pip3 install gym
 RUN pip3 install ray[rllib]  
 RUN pip3 install ray[debug]
 #<!--Installing trasnforms3d--> 
-RUN pip3 install transforms3d billiard psutil
+RUN pip3 install transforms3d billiard psutil transformations
 #<!--Installing dependencies-->
 RUN apt install --no-install-recommends -y \
     libasio-dev \
@@ -103,3 +103,11 @@ RUN cd /opt/rti.com/rti_connext_dds-5.3.1/resource/scripts && source ./rtisetenv
 #LABEL com.nvidia.volumes.needed="nvidia_driver"
 #ENV PATH /usr/local/nvidia/bin:${PATH}
 #ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64:${LD_LIBRARY_PATH}
+
+# (assuming nvidia graphics): if RViz fails to build due to undefined libGL.so, uncomment these two lines and rebuild docker:
+#RUN rm /usr/lib/x86_64-linux-gnu/libGL.so
+#RUN ln -s /usr/local/nvidia/lib64/libGL.so.1 /usr/lib/x86_64-linux-gnu/libGL.so
+
+# Other
+#RUN rm /usr/lib/x86_64-linux-gnu/libEGL.so
+#RUN ln /usr/lib/x86_64-linux-gnu/libEGL.so.1 /usr/lib/x86_64-linux-gnu/libEGL.so
