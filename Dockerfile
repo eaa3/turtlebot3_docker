@@ -3,7 +3,7 @@ FROM osrf/ros:dashing-desktop
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN mkdir -p ~/turtlebot3_ws
+
 # Update Ubuntu Software repository
 RUN apt-get update -y
 RUN apt install -y locales wget python curl gnupg gnupg2 gnupg1 lsb-release
@@ -88,17 +88,6 @@ RUN cd /opt/rti.com/rti_connext_dds-5.3.1/resource/scripts && source ./rtisetenv
 
 
 
-
-
-#### Not recommended to keep source code inside image.
-#### Deprecated
-#<!--Installing the packages-->
-#COPY turtlebot3_ws /root/turtlebot3_ws
-#RUN cd ~/turtlebot3_ws
-#RUN colcon build --symlink-install
-#### Deprecated
-
-
 # If you run into trouble with libGL error uncomment the following 3 lines and rebuild this docker image: 
 #LABEL com.nvidia.volumes.needed="nvidia_driver"
 #ENV PATH /usr/local/nvidia/bin:${PATH}
@@ -111,3 +100,15 @@ RUN cd /opt/rti.com/rti_connext_dds-5.3.1/resource/scripts && source ./rtisetenv
 # Other
 #RUN rm /usr/lib/x86_64-linux-gnu/libEGL.so
 #RUN ln /usr/lib/x86_64-linux-gnu/libEGL.so.1 /usr/lib/x86_64-linux-gnu/libEGL.so
+
+
+
+#### Compile packages
+#### Deprecated
+#<!--Installing the packages-->
+#RUN mkdir -p ~/Projects/hp_ws/turtlebot3_ws
+#COPY turtlebot3_ws ~/Projects/hp_ws/turtlebot3_ws
+#RUN cd ~/Projects/hp_ws/turtlebot3_ws
+#RUN colcon build --symlink-install
+#### Deprecated
+
