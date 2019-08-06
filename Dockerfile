@@ -82,15 +82,19 @@ RUN apt install -y apt-utils
 RUN apt install -y python3-argcomplete
 RUN apt install -y ros-dashing-test-msgs ros-dashing-tf2-sensor-msgs sudo
 
+#INSTALL ROS 2 RTI:
+RUN RTI_NC_LICENSE_ACCEPTED=yes apt install -q -y rti-connext-dds-5.3.1 
+RUN cd /opt/rti.com/rti_connext_dds-5.3.1/resource/scripts && source ./rtisetenv_x64Linux3gcc5.4.0.bash; cd -
 
-#### No recommended to keep source code inside image.
+
+
+
+
+#### Not recommended to keep source code inside image.
 #### Deprecated
 #<!--Installing the packages-->
 #COPY turtlebot3_ws /root/turtlebot3_ws
 #RUN cd ~/turtlebot3_ws
-#INSTALL ROS 2 RTI:
-#RUN apt install -y rti-connext-dds-5.3.1 
-#RUN cd /opt/rti.com/rti_connext_dds-5.3.1/resource/scripts && ./rtisetenv_x64Linux3gcc5.4.0.bash; cd -
 #RUN colcon build --symlink-install
 #### Deprecated
 
